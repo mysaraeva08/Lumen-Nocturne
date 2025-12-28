@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughts - Lumen Nocturne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="thoughts-page">
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
+
+    <div class="container">
+        <h1 class="fade-in">Thoughts</h1>
+        <p class="fade-in delay-1">Random reflections & mini diary vibes</p>
+
+        <!-- Input area -->
+        <div class="fade-in delay-2">
+            <textarea id="thoughtInput" placeholder="Write your thought..." rows="3"></textarea>
+            <button class="thought-button" onclick="addThought()">Add Thought</button>
+        </div>
+
+        <!-- Thoughts display -->
+        <div id="thoughtsList" class="fade-in delay-3"></div>
+    </div>
+
+    <!-- Navbar bottom (same as other pages except gallery) -->
+    <nav class="navbar fade-in delay-4">
+        <a href="index.html">Home</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="moods.html">Moods</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="thoughts.html">Thoughts</a>
+    </nav>
+
+    <!-- JS autosave + display -->
+    <script>
+        const thoughtsList = document.getElementById('thoughtsList');
+        const thoughtInput = document.getElementById('thoughtInput');
+
+        // Load saved thoughts dari localStorage bila page reload
+        let savedThoughts = JSON.parse(localStorage.getItem('thoughts')) || [];
+        savedThoughts.forEach(text => addThoughtToDOM(text));
+
+        function addThought() {
+            const text = thoughtInput.value.trim();
+            if(text !== "") {
+                addThoughtToDOM(text);
+                savedThoughts.unshift(text); // newest on top
+                localStorage.setItem('thoughts', JSON.stringify(savedThoughts));
+                thoughtInput.value = "";
+            }
+        }
+
+        function addThoughtToDOM(text) {
+            const div = document.createElement('div');
+            div.className = 'thought-card fade-in';
+            div.textContent = text;
+            thoughtsList.prepend(div); // newest on top
+        }
+    </script>
+</body>
+</html>

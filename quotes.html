@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes - Lumen Nocturne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1 class="fade-in">Quotes</h1>
+        <p id="quote" class="fade-in delay-1">Click the button below for a quote</p>
+        <button class="quote-button fade-in delay-2" onclick="newQuote()">New Quote</button>
+    </div>
+
+    <!-- Navigation (bottom navbar) -->
+    <nav class="navbar fade-in delay-3">
+        <a href="index.html">Home</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="moods.html">Moods</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="thoughts.html">Thoughts</a>
+    </nav>
+
+    <!-- JS for random quote -->
+    <script>
+        const quotes = [
+    "If everything seems dark, look again, you may be the light.",
+    "Because in the right eyes, you will always be art.",
+    "To be the star, you must burn.",
+    "Even in shadows, there is beauty.",
+    "The night whispers secrets only the brave hear.",
+    "Soft hearts shine brightest in darkness.",
+    "Every ending is the start of something luminous.",
+    "Moonlight doesn’t ask for permission to glow.",
+    "Quiet minds hold the loudest dreams.",
+    "Stars are proof that light exists even in the darkest skies.",
+    "In the stillness, your soul speaks.",
+    "Your aura is the art you carry unseen.",
+    "Dreams bloom in the silence of night.",
+    "Hold the darkness gently, it teaches light.",
+    "Embrace the night; it knows your true colors.",
+    "Even broken pieces can reflect light.",
+    "The universe hums in your heartbeat.",
+    "Soft voices echo louder in quiet hearts.",
+    "Light is patient, even when hidden.",
+    "You are a constellation of hopes and scars."
+];
+
+
+        function newQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById("quote").innerText = quotes[randomIndex];
+        }
+    </script>
+</body>
+</html>

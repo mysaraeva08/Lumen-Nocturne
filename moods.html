@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moods - Lumen Nocturne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1 class="fade-in">Choose Your Mood</h1>
+        <p class="fade-in delay-1">Tap a mood to see a matching quote or aesthetic message</p>
+
+        <!-- Mood buttons -->
+        <div class="mood-buttons fade-in delay-2">
+            <button class="mood-button" onclick="showMood('happy')">Happy</button>
+            <button class="mood-button" onclick="showMood('calm')">Calm</button>
+            <button class="mood-button" onclick="showMood('sad')">Sad</button>
+            <button class="mood-button" onclick="showMood('inspired')">Inspired</button>
+            <button class="mood-button" onclick="showMood('tired')">Tired</button>
+            <button class="mood-button" onclick="showMood('lonely')">Lonely</button>
+            <button class="mood-button" onclick="showMood('excited')">Excited</button>
+            <button class="mood-button" onclick="showMood('nostalgic')">Nostalgic</button>
+        </div>
+
+        <!-- Display message -->
+        <p id="moodMessage" class="fade-in delay-3"></p>
+    </div>
+
+    <!-- Navigation (bottom navbar) -->
+    <nav class="navbar fade-in delay-4">
+        <a href="index.html">Home</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="moods.html">Moods</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="thoughts.html">Thoughts</a>
+    </nav>
+
+    <!-- JS for mood messages -->
+    <script>
+        const moodMessages = {
+            happy: [
+                "Sunshine follows you wherever you go.",
+                "Your laughter is your light.",
+                "Happiness blooms in your aura."
+            ],
+            calm: [
+                "Breathe in, breathe out, feel the night around you.",
+                "Soft serenity flows through your mind.",
+                "Calm hearts see the beauty in shadows."
+            ],
+            sad: [
+                "Even in tears, stars are still shining.",
+                "Darkness is temporary; your light returns.",
+                "It’s okay to feel, then breathe again."
+            ],
+            inspired: [
+                "Your dreams are constellations waiting to shine.",
+                "Even small steps spark big changes.",
+                "Create, believe, and let your soul glow."
+            ],
+            tired: [
+                "Even the strongest hearts need rest.",
+                "Pause, breathe, and let the night soothe you.",
+                "Your mind and body deserve soft moments of calm."
+            ],
+             lonely: [
+                "Even alone, the stars are with you.",
+                "Your own company can be a gentle friend.",
+                "Solitude whispers secrets only you can hear."
+            ],
+            excited: [
+                "Your energy sparks waves in the universe.",
+                "Adventure waits in every heartbeat.",
+                "Let your excitement light up the night."
+            ],
+            nostalgic: [
+                "Memories are constellations in your mind.",
+                "Past moments still glow softly in your heart.",
+                "Let nostalgia remind you of the beauty you’ve lived."
+            ]
+        };
+
+        function showMood(mood) {
+            const messages = moodMessages[mood];
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById("moodMessage").innerText = messages[randomIndex];
+        }
+    </script>
+</body>
+</html>
